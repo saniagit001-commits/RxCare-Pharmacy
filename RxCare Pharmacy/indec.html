@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+ <!-- Header -->
+ <header class="header">
+    <div class="container">
+        <div class="pharmacy-name">RxCare Pharmacy</div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <input type="text" id="search-bar" placeholder="Search..." aria-label="Search">
+            <a href="#cart" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#auth" class="auth-icon"><i class="fas fa-user"></i></a>
+        </div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-slider">
+        <div class="slide" style="background-image: url('slide1.jpeg');">
+            <div class="overlay">
+                <h1>Top-Selling Products</h1>
+                <p>Find the best deals on trusted pharmaceuticals.</p>
+                <a href="#products" class="cta-button">Shop Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Signup & Login Section -->
+<section id="auth" class="auth-section">
+    <div class="container">
+        <div id="signup-form" class="auth-form">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="signup-username">Username</label>
+                <input type="text" id="signup-username" required>
+
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" required>
+
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="toggleAuth('login')">Log In</a></p>
+        </div>
+
+        <div id="login-form" class="auth-form" style="display: none;">
+            <h2>Log In</h2>
+            <form id="login-form">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+
+                <button type="submit">Log In</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="toggleAuth('signup')">Sign Up</a></p>
+        </div>
+    </div>
+</section>
+<!-- Cart Section -->
+<section id="cart" class="cart-section">
+    <div class="container">
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+            <p id="empty-cart-message">No items in the cart yet.</p>
+            <div id="cart-item-list" class="grid"></div>
+        </div>
+        <button id="checkout-button" onclick="proceedToCheckout()" style="display: none;">Proceed to Checkout</button>
+    </div>
+</section>
+<!-- Checkout Section -->
+<section id="checkout" class="checkout-section" style="display: none;">
+    <div class="container">
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+            <label for="checkout-name">Full Name</label>
+            <input type="text" id="checkout-name" required>
+
+            <label for="checkout-address">Address</label>
+            <textarea id="checkout-address" required></textarea>
+
+            <label for="payment-method">Payment Method</label>
+            <div id="payment-method">
+                <input type="radio" id="online-payment" name="payment" value="online" checked>
+                <label for="online-payment">Online Payment</label>
+                <input type="radio" id="cash-on-delivery" name="payment" value="cash">
+                <label for="cash-on-delivery">Cash on Delivery</label>
+            </div>
+
+            <div id="card-info" style="display: block;">
+                <label for="checkout-card">Card Information</label>
+                <input type="text" id="checkout-card" placeholder="1234 5678 9101 1121" required>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</section>
+
+<!-- Product Grid -->
+<section>
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid" id="products">
+      <div class="product-card">
+        <img src="product1.jpg" alt="Product 1" />
+        <div class="product-info">
+          <h3>Multivitamin</h3>
+          <p class="price">$14.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product2.jpg" alt="Product 2" />
+        <div class="product-info">
+          <h3>Antibiotics</h3>
+          <p class="price">$9.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product3.jpg" alt="Product 3" />
+        <div class="product-info">
+          <h3>Energy Booster</h3>
+          <p class="price">$10.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product4.jpg" alt="Product 4" />
+        <div class="product-info">
+          <h3>Essential Oil</h3>
+          <p class="price">$6.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product5.jpg" alt="Product 5" />
+        <div class="product-info">
+          <h3>Skin Cream</h3>
+          <p class="price">$8.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product6.jpg" alt="Product 6" />
+        <div class="product-info">
+          <h3>Brightening Serum</h3>
+          <p class="price">$4.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product7.jpg" alt="Product 7" />
+        <div class="product-info">
+          <h3>Skin Cleanser</h3>
+          <p class="price">$4.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product8.jpg" alt="Product 8" />
+        <div class="product-info">
+          <h3>Purifyer</h3>
+          <p class="price">$4.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- About Us Section -->
+<section id="about" class="about-us">
+    <h2>About Us</h2>
+    <div class="about-content">
+        <div class="text">
+            <p>At Rx Care Pharmacy, we are committed to providing high-quality pharmaceutical products and valuable health advice to support your well-being. Our dedicated team of experts works tirelessly to ensure your satisfaction and trust in every purchase.</p>
+            <p>We prioritize customer care and are proud to be your partner in achieving optimal health and wellness.</p>
+        </div>
+        <div class="images">
+            <img src="team.jpg" alt="Our Team">
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="blog">
+    <h2>From Our Blog</h2>
+    <div class="blog-grid">
+        <article class="blog-post">
+            <img src="blog1.webp" alt="Blog Post 1">
+            <h3>5 Tips for Healthy Living</h3>
+            <p>Discover simple ways to improve your health every day.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+        <article class="blog-post">
+            <img src="blog2.jpg" alt="Blog Post 2">
+            <h3>The Benefits of Regular Exercise</h3>
+            <p>How staying active can enhance your life.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+        <article class="blog-post">
+            <img src="blog3.jpeg" alt="Blog Post 3">
+            <h3>Nutrition Essentials</h3>
+            <p>Learn about the vital nutrients your body needs.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+    </div>
+</section>
+
+
+    <section id="reviews" class="customer-reviews">
+        <h2>What Our Customers Say</h2>
+        <div class="review-slider-container">
+            <div class="review-slider">
+                <div class="review">
+                    <p>"Fantastic service and great prices! Highly recommend."</p>
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+                <div class="review">
+                    <p>"Quick delivery and top-quality products. Will buy again!"</p>
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+                <div class="review">
+                    <p>"Excellent customer support and reliable pharmacy."</p>
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="p-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">Contact Us</h2>
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div class="button-container">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      
+          <!-- Success Message -->
+          <div id="thankYouMessage" class="thank-you-message" style="display: none; margin-top: 20px; opacity:0;">
+            <h3 class="text-success text-center mt-4">Thank you for contacting us!</h3>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <p>Contact us: 123 Pharmacy Lane, Rx City, PH 12345 | (123) 456-7890 | support@rxcare.com</p>
+                <ul class="quick-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const reviewSlider = document.querySelector('.review-slider');
+        const reviews = document.querySelectorAll('.review');
+        let currentIndex = 0;
+    
+        function showNextReview() {
+            // Update the index to the next review
+            currentIndex = (currentIndex + 1) % reviews.length;
+    
+            // Calculate the offset for the current review
+            const offset = -currentIndex * 100;
+    
+            // Apply the transform to slide the reviews
+            reviewSlider.style.transform = `translateX(${offset}%)`;
+        }
+    
+        // Automatically change reviews every 4 seconds
+        setInterval(showNextReview, 4000);
+    });
+
+    function toggleAuth(view) {
+        const signup = document.getElementById('signup-form');
+        const login = document.getElementById('login-form');
+        if (view === 'login') {
+            signup.style.display = 'none';
+            login.style.display = 'block';
+        } else {
+            signup.style.display = 'block';
+            login.style.display = 'none';
+        }
+    }
+
+    let cartItems = [];
+
+// Function to add an item to the cart
+function addItemToCart(name, price) {
+    cartItems.push({ name, price });
+    updateCartDisplay();
+}
+
+// Function to update the cart display
+function updateCartDisplay() {
+    const cartItemList = document.getElementById('cart-item-list');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    cartItemList.innerHTML = '';  // Clear previous items
+    if (cartItems.length === 0) {
+        emptyCartMessage.style.display = 'block';
+        checkoutButton.style.display = 'none';
+    } else {
+        emptyCartMessage.style.display = 'none';
+        checkoutButton.style.display = 'block';
+
+        // Display all cart items
+        cartItems.forEach(item => {
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.classList.add('cart-item');
+            cartItemDiv.innerHTML = `
+                <h3>${item.name}</h3>
+                <p>$${item.price}</p>
+                <button class="remove-item">Remove</button>
+            `;
+            cartItemList.appendChild(cartItemDiv);
+
+            // Add event listener for the "Remove" button
+            cartItemDiv.querySelector('.remove-item').addEventListener('click', function () {
+                removeItemFromCart(item.name);  // Pass the item name to the remove function
+            });
+        });
+    }
+}
+
+// Function to remove an item from the cart
+function removeItemFromCart(itemName) {
+    cartItems = cartItems.filter(item => item.name !== itemName);  // Remove item by name
+    updateCartDisplay();
+}
+
+// Proceed to checkout
+function proceedToCheckout() {
+    document.getElementById('cart').style.display = 'none';
+    document.getElementById('checkout').style.display = 'block';
+}
+
+// Submit checkout form
+document.getElementById('checkout-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    alert("Order placed successfully!");
+    cartItems = [];
+    updateCartDisplay();
+    document.getElementById('checkout').style.display = 'none';
+    document.getElementById('cart').style.display = 'block';
+});
+
+// Add event listeners to "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function () {
+        const name = this.getAttribute('data-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        addItemToCart(name, price);
+    });
+});
+
+document.getElementById('search-bar').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        const query = event.target.value.toLowerCase();
+        if (query.includes('home')) {
+            location.href = '#home';
+        } else if (query.includes('product')) { // Adjusted to match 'product' or 'products'
+            location.href = '#products';
+        } else if (query.includes('blog')) {
+            location.href = '#blog';
+        } else if (query.includes('contact')) {
+            location.href = '#contact';
+        } else if (query.includes('about')) {
+            location.href = '#about';
+        } else {
+            alert('No matching section found!'); // Or however you want to handle this
+        }
+        event.target.value = ''; // Clear the search bar
+    }
+});
+
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent form submission
+  
+    // Show the thank-you message with a fade-in effect
+    const thankYouMessage = document.getElementById("thankYouMessage");
+    thankYouMessage.style.display = "block";
+    thankYouMessage.classList.add("fade-in");
+  });
+
+
+
+</script>    
+</body>
+</html>
